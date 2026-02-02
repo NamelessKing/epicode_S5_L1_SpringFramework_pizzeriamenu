@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EpicodeS5L1SpringFrameworkPizzeriamenuApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EpicodeS5L1SpringFrameworkPizzeriamenuApplication.class, args);
+		var ctx = SpringApplication.run(EpicodeS5L1SpringFrameworkPizzeriamenuApplication.class, args);
 	}
+
+
 
 }
