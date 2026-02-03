@@ -1,35 +1,42 @@
 package it.epicode.pizzeriamenu.entities;
 
+import it.epicode.pizzeriamenu.entities.drinks.Drink;
+import it.epicode.pizzeriamenu.entities.pizzas.Pizza;
 import it.epicode.pizzeriamenu.entities.toppings.Topping;
-
 import java.util.List;
 
 public class Menu {
-    private final List<MenuItem> pizzas;
+    private final List<Pizza> pizzas;
     private final List<Topping> toppings;
-    private final List<MenuItem> drinks;
+    private final List<Drink> drinks;
 
-    public Menu(List<MenuItem> pizzas, List<Topping> toppings, List<MenuItem> drinks) {
+    public Menu(List<Pizza> pizzas, List<Topping> toppings, List<Drink> drinks) {
         this.pizzas = pizzas;
         this.toppings = toppings;
         this.drinks = drinks;
     }
 
-    public String print() {
-        StringBuilder sb = new StringBuilder();
+    public void print() {
+        System.out.println("\nPizzas (Calories / Price)");
+        pizzas.forEach(p -> System.out.println("- " + p.name() + " | " + p.calories() + " cal | $" + p.price()));
 
-        sb.append("Pizzas (Calories / Price)\n");
-        for (MenuItem p : pizzas) sb.append("- ").append(p.name()).append(" - ")
-                .append(p.calories()).append(" - ").append(p.price()).append("\n");
+        System.out.println("\nToppings (Calories / Price)");
+        toppings.forEach(t -> System.out.println("- " + t.name() + " | " + t.calories() + " cal | $" + t.price()));
 
-        sb.append("\nToppings (Calories / Price)\n");
-        for (Topping t : toppings) sb.append("- ").append(t.name()).append(" - ")
-                .append(t.calories()).append(" - ").append(t.price()).append("\n");
-
-        sb.append("\nDrinks (Calories / Price)\n");
-        for (MenuItem d : drinks) sb.append("- ").append(d.name()).append(" - ")
-                .append(d.calories()).append(" - ").append(d.price()).append("\n");
-
-        return sb.toString();
+        System.out.println("\nDrinks (Calories / Price)");
+        drinks.forEach(d -> System.out.println("- " + d.name() + " | " + d.calories() + " cal | $" + d.price()));
     }
+
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
+
 }

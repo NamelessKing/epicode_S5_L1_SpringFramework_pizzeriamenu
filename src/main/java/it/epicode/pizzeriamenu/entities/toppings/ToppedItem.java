@@ -1,8 +1,9 @@
 package it.epicode.pizzeriamenu.entities.toppings;
 
 import it.epicode.pizzeriamenu.entities.MenuItem;
+import it.epicode.pizzeriamenu.entities.pizzas.Pizza;
 
-public class ToppedItem implements MenuItem {
+public class ToppedItem implements Pizza {
     private final MenuItem base;
     private final Topping topping;
 
